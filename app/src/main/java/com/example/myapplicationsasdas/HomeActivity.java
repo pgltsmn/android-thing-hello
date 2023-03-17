@@ -2,34 +2,25 @@ package com.example.myapplicationsasdas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ClipData;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import java.util.ArrayList;
 
-public class newactivitywhat extends AppCompatActivity {
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
-    private ListView listView;
-    private ArrayList<User> userArrayList;
-    private ArrayAdapter<User> userArrayAdapter;
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener{
 
-
-
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_newactivitywhat);
-//        textView = findViewById(R.id.textview);
-
-//        Intent intent = getIntent();
-//        String varname = intent.getStringExtra (name);
-//        textView.setText(food);
+        setContentView(R.layout.activity_home);
+        button = findViewById(R.id.list_button);
+        button.setOnClickListener((View.OnClickListener) this);
     }
 
     @Override
@@ -50,4 +41,14 @@ public class newactivitywhat extends AppCompatActivity {
         return true;
 
     }
+
+    @Override
+    public void onClick(View view) {
+        if (button == view) {
+            Intent intent3 = new Intent(this, listactiv.class);
+            startActivity(intent3);
+        }
+    }
+
+
 }

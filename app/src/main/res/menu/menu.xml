@@ -4,6 +4,6 @@
 
     <item
 
-        android:title="Go Back"
+        android:title="Sign Out"
         android:id="@+id/goback"/>
 </menu>
