@@ -10,10 +10,15 @@ import android.view.MenuItem;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button button;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +26,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_home);
         button = findViewById(R.id.list_button);
         button.setOnClickListener((View.OnClickListener) this);
+        mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -35,6 +41,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     {
         int id = item.getItemId();
         if(id == R.id.goback) {
+            mAuth.signOut();
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }

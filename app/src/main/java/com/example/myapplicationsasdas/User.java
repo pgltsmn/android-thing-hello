@@ -1,9 +1,17 @@
 package com.example.myapplicationsasdas;
 
+
+import com.google.firebase.database.IgnoreExtraProperties;
+
+@IgnoreExtraProperties
 public class User {
     private String name;
     private String email;
     private String password;
+
+    public User() {
+
+    }
 
     public String getName() {
         return name;

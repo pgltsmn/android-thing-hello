@@ -20,20 +20,19 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private EditText email, password;
+    private String email, password;
     private TextView signin;
     private Button signupbutton, signinbutton;
     private FirebaseAuth mAuth;
-
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        email = findViewById(R.id.email);
+        email = findViewById(R.id.email).toString();
         signin = findViewById(R.id.signin);
-        password = findViewById(R.id.password);
+        password = findViewById(R.id.password).toString();
         signinbutton = findViewById(R.id.signinbutton);
         signupbutton = findViewById(R.id.signupbutton);
         signinbutton.setOnClickListener((View.OnClickListener) this);
@@ -41,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mAuth = FirebaseAuth.getInstance();
 
+        signin_user(email, password);
 
     }
 
